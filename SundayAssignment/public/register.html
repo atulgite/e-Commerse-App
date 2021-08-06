@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>e-Mobile Shop</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div class="jumbotron text-center">
+            <h1>e-Mobile Shop</h1>
+            <p>Brand New Phones on Your Door Step!!</p> 
+            <p><a href="index.html">Products </a> | <a href="register.html"> Register</a>|
+            <a href="cart.html">MyCart </a> | <a href="payment.html"> Payment</a>|
+            <a href="orderDetails.html">My Order</a></p>
+        </div>
+          
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <table>
+                        <tr>
+                            <td>First Name</td>
+                            <td><input type="text" id="first_name"/></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name</td>
+                            <td><input type="text" id="last_name"/></td>
+                        </tr>
+                        <tr>
+                            <td>Date Of Birth</td>
+                            <td><input type="text" id="birth_date"/></td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number</td>
+                            <td><input type="text" id="phone"/></td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td><input type="text" id="address"/></td>
+                        </tr>
+                        <tr>
+                            <td>Email Id</td>
+                            <td><input type="text" id="emailid"/></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="text" id="password"/></td>
+                        </tr>
+                        <tr>
+                            <td>Confirm Password</td>
+                            <td><input type="text" id="cpassword"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button id="regbutton">Register</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            $(document).ready(function(){
+                $("#regbutton").click(function(){
+                    // let tfirst_name=$("#first_name").val();
+                    // let tlast_name=$("#last_name").val();
+                    // let tbirth_date=$("#birth_date").val();
+                    // let tphone=$("#phone").val();
+                    // let taddress=$("#address").val();
+                    // let temailid=$("#emailid").val();
+                    // let tpassword=$("#password").val();
+
+                    var newCustomer={
+                        first_name:$("#first_name").val(),
+                        last_name:$("#last_name").val(),
+                        birth_date:$("#birth_date").val(),
+                        phone:$("#phone").val(),
+                        address:$("#address").val(),
+                        emailid:$("#emailid").val(),
+                        password:$("#password").val()
+                    }
+                    // console.log("first name is" +first_name);
+                    $.ajax({
+                        url:"/api/customers",
+                        method:"POST",
+                        data:newCustomer,
+                        success: function(data){
+                            console.log("Successfully Added");
+                        },
+                        error: function(err){
+                            console.log(err);
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>

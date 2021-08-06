@@ -1,0 +1,23 @@
+1.Create Orders table  will  contain ordered, ordatedate, customerid, amount.
+2.Cread Orderitems tables will contain  orderitemid, ordered, itemid, quantity
+3.Implement REST API for 
+/api/orderitems
+/api/orderitems/12
+CRUD operations against orderitems table using mySQL connector
+
+4.Implement REST API for 
+/api/orders
+/api/orders/56
+CRUD operations against orderitems table using mySQL connector
+5.Implement REST API for customer
+Get all orders /api/customersorders
+Get all orders for a customer using /api/customerorders/customerid
+
+6.Add bill.html to show order details for customer he want to pay
+7.Add process or cancel button to take action against order he wants to place
+
+8.Add cart.html page to show shoppingcart items as well as 
+  Add or remove existing item selected from shopping cart
+9.Store Shopping cart data at client side using SessionStorage HTML 5.
+10.Add addtocart button on details.html page, sothat that product item could have been added to shoppingcart
+11.Add Checkout button on cart.html page to place an order and show in bill.html page.
